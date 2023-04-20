@@ -1,0 +1,140 @@
+@import "variables";
+* {
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "HSDream-Light";
+  src: url("../fonts/HSDream-Light.ttf");
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-normal;
+  overflow-x: hidden;
+  #{$ltr} & {
+    direction: ltr;
+    text-align: left;
+  }
+  #{$rtl} & {
+    direction: rtl;
+    text-align: right;
+  }
+  &#{$theme-light} {
+    background-color: $white;
+    #{$theme-light} & {
+      color: $dark-color;
+    }
+    #{$theme-dark} & {
+      color: $light-color;
+    }
+  }
+  &#{$theme-dark} {
+    color: $white;
+    background-color: $dark-theme;
+  }
+  @media (max-width: $screen-lg) {
+    //padding-bottom: 60px;
+  }
+}
+body.no-transition * {
+  transition: none !important;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+p {
+  #{$theme-light} & {
+    color: $dark;
+  }
+  #{$theme-dark} & {
+    color: $white;
+  }
+  margin: 0;
+  font-size: 1.2em;
+}
+input:focus::placeholder {
+  color: transparent;
+}
+*::placeholder {
+  color: #444;
+  transition: all 0.3s ease;
+}
+form {
+  padding: 0;
+  margin: 0 auto;
+  #{$ltr} & {
+    text-align: left;
+  }
+  #{$rtl} & {
+    text-align: right;
+  }
+  width: 100%;
+}
+
+a {
+  text-decoration: none !important;
+}
+.owl-carousel {
+  touch-action: manipulation;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+button,
+a {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+select:focus,
+button:focus,
+input:focus {
+  outline: 0;
+}
+/* owl carousel*/
+.owl-stage-outer {
+  display: block;
+  position: relative;
+  direction: ltr;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next {
+  display: inline-block;
+}
+.owl-carousel .owl-item {
+  @include dir-direction(ltr);
+}
+
+.owl-carousel .owl-stage,
+.owl-carousel.owl-drag .owl-item {
+  -ms-touch-action: auto;
+  touch-action: auto;
+}
+/* owl carousel*/
+
+.owl-nav img {
+  #{$ltr} & {
+    transform: rotate(180deg);
+  }
+  width: 43px;
+  height: 43px;
+}
